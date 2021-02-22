@@ -50,7 +50,7 @@ namespace ycsbc {
         void SetOptions(metadb::Option *options, utils::Properties &props);
         void SerializeValues(std::vector<KVPair> &kvs, std::string &value);
         void DeSerializeValues(std::string &value, std::vector<KVPair> &kvs);
-        metadb::inode_id_t StringToInodeId(string &str);
+        metadb::inode_id_t StringToInodeId(const string &str);
 
     };
 }

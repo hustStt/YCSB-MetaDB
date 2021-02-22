@@ -10,7 +10,7 @@
 using namespace std;
 
 namespace ycsbc {
-    LevelDB::LevelDB(const char *dbfilename, utils::Properties &props) :noResult(0), cache_(nullptr), dbstats_(nullptr), write_sync_(false){
+    LevelDB::LevelDB(const char *dbfilename, utils::Properties &props) :noResult(0), write_sync_(false){
         
         //set option
         leveldb::Options options;

@@ -10,7 +10,7 @@
 using namespace std;
 
 namespace ycsbc {
-    MetaDB::MetaDB(const char *dbfilename, utils::Properties &props) :noResult(0), cache_(nullptr), dbstats_(nullptr), write_sync_(false){
+    MetaDB::MetaDB(const char *dbfilename, utils::Properties &props) :noResult(0){
         
         //set option
         metadb::Option options;
@@ -19,7 +19,7 @@ namespace ycsbc {
 
         int s = metadb::DB::Open(options, dbfilename, &db_);
         if(s != 0){
-            cerr<<"Can't open metadb "<<dbfilename<<" "<<s.ToString()<<endl;
+            cerr<<"Can't open metadb "<<dbfilename<<" "<<s<<endl;
             exit(0);
         }
     }
@@ -38,7 +38,7 @@ namespace ycsbc {
                       std::vector<KVPair> &result) {
         string value;
         metadb::inode_id_t ikey = StringToInodeId(key);
-        int s = db_->InodeGet(key, &value);
+        int s = db_->InodeGet(ikey, &value);
         if(s == 0) {
             DeSerializeValues(value, result);
             return DB::kOK;
@@ -81,7 +81,7 @@ namespace ycsbc {
 
     int MetaDB::Delete(const std::string &table, const std::string &key) {
         metadb::inode_id_t ikey = StringToInodeId(key);
-        int s = db_->InodeDelete(key);
+        int s = db_->InodeDelete(ikey);
         if(s != 0 && s != 2){
             cerr<<"Delete error\n"<<endl;
             exit(0);
@@ -135,9 +135,9 @@ namespace ycsbc {
             kvs.push_back(pair);
         }
     }
-    metadb::inode_id_t MetaDB::StringToInodeId(string &str){
+    metadb::inode_id_t MetaDB::StringToInodeId(const string &str){
         uint64_t num = 0;
-        sscanf(str.c_str(), "%llx", &num);
+        sscanf(str.c_str(), "%lx", &num);
         return num;
     }
 }
