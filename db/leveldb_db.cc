@@ -26,7 +26,7 @@ namespace ycsbc {
 
     void LevelDB::SetOptions(leveldb::Options *options, utils::Properties &props) {
         options->create_if_missing = true;
-        options.compression = leveldb::kNoCompression;
+        options->compression = leveldb::kNoCompression;
         write_sync_ = false;    //主要是写日志，
     }
 
@@ -90,7 +90,7 @@ namespace ycsbc {
 
     int LevelDB::Delete(const std::string &table, const std::string &key) {
         leveldb::Status s;
-        leveldb::WriteOptions write_options = rocksdb::WriteOptions();
+        leveldb::WriteOptions write_options = leveldb::WriteOptions();
         if(write_sync_) {
             write_options.sync = true;
         }
