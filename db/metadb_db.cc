@@ -38,7 +38,7 @@ namespace ycsbc {
                       std::vector<KVPair> &result) {
         string value;
         metadb::inode_id_t ikey = StringToInodeId(key);
-        int s = db_->InodeGet(ikey, &value);
+        int s = db_->InodeGet(ikey, value);
         if(s == 0) {
             DeSerializeValues(value, result);
             return DB::kOK;
