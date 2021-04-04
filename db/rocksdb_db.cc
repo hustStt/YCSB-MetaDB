@@ -140,7 +140,7 @@ namespace ycsbc {
     }
 
     bool RocksDB::HaveBalancedDistribution() {
-        return db_->HaveBalancedDistribution();
+        //return db_->HaveBalancedDistribution();
     }
 
     RocksDB::~RocksDB() {
