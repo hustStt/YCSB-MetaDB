@@ -17,11 +17,17 @@ METADB_OBJECTS=$(METADB_SOURCES:.cc=.o)
 
 ##leveldb
 LEVELDB_SOURCES= db/leveldb_db.cc
-LEVELDB_LIBRARY= -lleveldb    
+LEVELDB_LIBRARY= -lleveldb -lsnappy
 LEVELDB_DEFS= -DYCSB_LEVELDB
 LEVELDB_OBJECTS=$(LEVELDB_SOURCES:.cc=.o)
 ##
 
+##rocksdb
+LEVELDB_SOURCES= db/rocksdb_db.cc
+LEVELDB_LIBRARY= -lrocksdb -lsnappy
+LEVELDB_DEFS= -DYCSB_LEVELDB
+LEVELDB_OBJECTS=$(LEVELDB_SOURCES:.cc=.o)
+##
 
 OBJECTS=$(LIB_SOURCES:.cc=.o)
 EXEC=ycsbc
