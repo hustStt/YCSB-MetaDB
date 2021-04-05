@@ -40,6 +40,13 @@ DB* DBFactory::CreateDB(utils::Properties &props) {
     return new LevelDB(dbpath.c_str(), props);
   } 
 #endif
+
+#ifdef YCSB_HBKV
+  else if (props["dbname"] == "hbkv") {
+    std::string dbpath = props.GetProperty("dbpath","/tmp/test-hbkv");
+    return new HBKV(dbpath.c_str(), props);
+  } 
+#endif
   else return NULL;
 }
 
