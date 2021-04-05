@@ -24,6 +24,11 @@
 #include "db/hbkv_db.h"
 #endif
 
+
+#ifdef YCSB_ROCKSDB
+#include "db/rocksdb_db.h"
+#endif
+
 using namespace std;
 using ycsbc::DB;
 using ycsbc::DBFactory;
@@ -50,6 +55,12 @@ DB* DBFactory::CreateDB(utils::Properties &props) {
   else if (props["dbname"] == "hbkv") {
     std::string dbpath = props.GetProperty("dbpath","/tmp/test-hbkv");
     return new HBKV(dbpath.c_str(), props);
+  } 
+#endif
+#ifdef YCSB_ROCKSDB
+  else if (props["dbname"] == "rocksdb") {
+    std::string dbpath = props.GetProperty("dbpath","/tmp/test-hbkv");
+    return new RocksDB(dbpath.c_str(), props);
   } 
 #endif
   else return NULL;
