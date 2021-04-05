@@ -2,8 +2,8 @@
 // 
 //
 
-#ifndef YCSB_C_LEVELDB_DB_H
-#define YCSB_C_LEVELDB_DB_H
+#ifndef YCSB_C_HBKV_DB_H
+#define YCSB_C_HBKV_DB_H
 
 #include "core/db.h"
 #include <iostream>
@@ -47,7 +47,6 @@ namespace ycsbc {
         unsigned noResult;
         bool write_sync_;
 
-        void SetOptions(leveldb::Options *options, utils::Properties &props);
         void SerializeValues(std::vector<KVPair> &kvs, std::string &value);
         void DeSerializeValues(std::string &value, std::vector<KVPair> &kvs);
         uint64_t StringToUint64(const string &str);
@@ -55,4 +54,4 @@ namespace ycsbc {
 }
 
 
-#endif //YCSB_C_LEVELDB_DB_H
+#endif //YCSB_C_HBKV_DB_H

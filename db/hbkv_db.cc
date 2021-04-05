@@ -17,9 +17,6 @@ namespace ycsbc {
         }
     }
 
-    void HBKV::SetOptions(leveldb::Options *options, utils::Properties &props) {
-        
-    }
 
 
     int HBKV::Read(const std::string &table, const std::string &key, const std::vector<std::string> *fields,
@@ -72,7 +69,7 @@ namespace ycsbc {
 
     int HBKV::Delete(const std::string &table, const std::string &key) {
         uint64_t ikey = StringToUint64(key);
-        db_->Update(ikey);
+        db_->Delete(ikey);
         return DB::kOK;
     }
 
