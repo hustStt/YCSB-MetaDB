@@ -11,10 +11,6 @@ namespace ycsbc {
         string persistent_path(dbfilename);
         db_ = new NVMBtree();
         db_->Init(persistent_path, true);
-        if(!s.ok()){
-            cerr<<"Can't open hbkv "<<dbfilename<<" "<<s.ToString()<<endl;
-            exit(0);
-        }
     }
 
 
