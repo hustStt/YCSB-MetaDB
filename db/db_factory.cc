@@ -19,6 +19,11 @@
 #include "db/leveldb_db.h"
 #endif
 
+
+#ifdef YCSB_HBKV
+#include "db/hbkv_db.h"
+#endif
+
 using namespace std;
 using ycsbc::DB;
 using ycsbc::DBFactory;
