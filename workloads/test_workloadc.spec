@@ -7,7 +7,7 @@
 #   Request distribution: zipfian
 keylength=8
 fieldcount=1
-fieldlength=1024
+fieldlength=256
 
 recordcount=100000000
 operationcount=1000000
