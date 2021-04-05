@@ -1,8 +1,8 @@
 #/bin/bash
 
 workload="workloads/test_workloada.spec"
-dbpath="/home/lzw/ceshi"
-moreworkloads="workloads/test_workloada.spec:workloads/test_workloadb.spec:workloads/test_workloadc.spec:workloads/test_workloadd.spec:workloads/test_workloadf.spec"
+dbpath="/mnt/pmem1/ceshi"
+moreworkloads="workloads/test_workloada.spec:workloads/test_workloadb.spec:workloads/test_workloadc.spec:workloads/test_workloadd.spec:workloads/test_workloadf.spec:workloads/test_workloade.spec"
 
 
 
