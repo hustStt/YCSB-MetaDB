@@ -31,7 +31,7 @@ ROCKSDB_OBJECTS=$(ROCKSDB_SOURCES:.cc=.o)
 
 ##hbkv
 HBKV_SOURCES= db/hbkv_db.cc
-HBKV_LIBRARY= -lnvmbtree -lpmem
+HBKV_LIBRARY= -lnvmbtree -lpmem -lpmemobj
 HBKV_DEFS= -DYCSB_HBKV
 HBKV_OBJECTS=$(ROCKSDB_SOURCES:.cc=.o)
 ##
