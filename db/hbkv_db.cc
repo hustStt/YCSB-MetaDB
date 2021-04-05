@@ -8,9 +8,8 @@ using namespace std;
 
 namespace ycsbc {
     HBKV::HBKV(const char *dbfilename, utils::Properties &props) :noResult(0), write_sync_(false){
-        string persistent_path(dbfilename);
         db_ = new NVMBtree();
-        db_->Init(persistent_path, true);
+        db_->Init("/mnt/peme1/ceshi", true);
     }
 
 
