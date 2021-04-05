@@ -9,8 +9,8 @@ keylength=8
 fieldcount=1
 fieldlength=256
 
-recordcount=100000000
-operationcount=1000000
+recordcount=200000000
+operationcount=10000000
 workload=com.yahoo.ycsb.workloads.CoreWorkload
 
 readallfields=true
